@@ -14,7 +14,6 @@ jobs:
     - uses: benjlevesque/short-sha@v1.2
       id: short-sha
         
-    - uses: actions/checkout@v2
     - name: Set up JDK
       uses: actions/setup-java@v2
       with:
@@ -23,13 +22,26 @@ jobs:
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
+    - uses: actions/checkout@master
+      with:
+        name: PieKing1215/InvMove
+    
+    - run: chmod +x ./gradlew
+
+    - name: InvMove publishToMavenLocal
+      uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
+      with:
+        arguments: publishToMavenLocal
+        
+    - uses: actions/checkout@v2
+    
     - run: chmod +x ./gradlew
 
     - name: Build with Gradle
       uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
       with:
         arguments: build
-        
+    
     - name: Prep files
       run: |
         mv ./forge/build/libs/*[0-9].jar "./InvMoveCompats-forge-${{ steps.short-sha.outputs.sha }}.jar"
