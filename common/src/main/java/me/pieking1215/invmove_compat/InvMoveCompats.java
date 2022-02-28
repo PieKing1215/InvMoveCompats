@@ -16,7 +16,7 @@ public class InvMoveCompats {
             Modules.modules.add(new REICompat());
         }
 
-        if (isModLoaded.apply("cloth-config")) {
+        if (isModLoaded.apply("cloth-config") || isModLoaded.apply("cloth_config")) {
             Modules.modules.add(new ClothConfigCompat());
         }
     }
