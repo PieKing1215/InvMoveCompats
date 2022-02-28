@@ -20,6 +20,6 @@ public class InvMoveCompatsForge {
     }
 
     private void imEnqueue(InterModEnqueueEvent evt) {
-        DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> InvMoveCompats::init);
+        DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> InvMoveCompatsForgeInit::init);
     }
 }

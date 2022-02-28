@@ -10,6 +10,16 @@ loom {
 
 repositories {
     mavenLocal()
+    maven {
+        // location of the maven that hosts JEI files
+        name = "Progwml6 maven"
+        url = "https://dvs1.progwml6.com/files/maven/"
+    }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
 }
 
 architectury {
@@ -45,6 +55,8 @@ dependencies {
 
     modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-forge:7.3.432"
 
+    modCompileOnly "mezz.jei:jei-1.18.1:9.2.1.69"
+//    modRuntimeOnly "mezz.jei:jei-1.18.1:9.2.1.69"
 
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
