@@ -8,6 +8,14 @@
 
 ### Addon for [InvMove](https://github.com/PieKing1215/InvMove) that adds additional mod compatibilities.
 
+<table>
+<tr>
+  <td><a href="https://github.com/PieKing1215/InvMoveCompats">GitHub</a></td>
+  <td><a href="https://www.curseforge.com/minecraft/mc-mods/invmovecompats">CurseForge</a></td>
+  <td><a href="https://modrinth.com/mod/invmovecompats">Modrinth</a></td>
+</tr>
+</table>
+
 Note that mods not listed below will still have basic compatibility through the "Unrecognized UI Types" config section in the base mod.<br>
 This mod primarily targets mods that have screens that don't work through that system, or add behaviors that conflict with the base mod.
 
