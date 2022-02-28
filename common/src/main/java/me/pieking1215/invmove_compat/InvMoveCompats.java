@@ -1,46 +1,23 @@
 package me.pieking1215.invmove_compat;
 
-import me.pieking1215.invmove.module.Module;
 import me.pieking1215.invmove.module.Modules;
-import me.pieking1215.invmove.module.config.ConfigBool;
-import me.pieking1215.invmove.module.config.ModuleConfig;
-import net.minecraft.client.gui.screens.Screen;
+import me.pieking1215.invmove_compat.compat.ClothConfigCompat;
+import me.pieking1215.invmove_compat.compat.REICompat;
+
+import java.util.function.Function;
 
 public class InvMoveCompats {
     public static final String MOD_ID = "invmove_compat";
 
+    public static Function<String, Boolean> isModLoaded = s -> false;
+
     public static void init() {
-        Modules.modules.add(new Module() {
-            ModuleConfig movement = new ModuleConfig("movement");
-            ConfigBool m_test = movement.bool("test", false);
+        if (isModLoaded.apply("roughlyenoughitems")) {
+            Modules.modules.add(new REICompat());
+        }
 
-            ModuleConfig background = new ModuleConfig("background");
-            ConfigBool b_test = background.bool("test", true);
-
-            @Override
-            public String getId() {
-                return "test";
-            }
-
-            @Override
-            public Movement shouldAllowMovement(Screen screen) {
-                return Movement.PASS;
-            }
-
-            @Override
-            public Background shouldHideBackground(Screen screen) {
-                return Background.PASS;
-            }
-
-            @Override
-            public ModuleConfig getMovementConfig() {
-                return movement;
-            }
-
-            @Override
-            public ModuleConfig getBackgroundConfig() {
-                return background;
-            }
-        });
+        if (isModLoaded.apply("cloth-config")) {
+            Modules.modules.add(new ClothConfigCompat());
+        }
     }
 }

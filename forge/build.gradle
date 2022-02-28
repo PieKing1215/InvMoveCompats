@@ -39,7 +39,13 @@ dependencies {
     // Remove the next line if you don't want to depend on the API
 //    modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
     modApi "me.shedaniel.cloth:cloth-config-forge:${rootProject.cloth_version}"
-    modApi "me.pieking1215.invmove:InvMove-forge:0.5.0"
+    modApi "me.pieking1215.invmove:InvMove-forge:${rootProject.invmove_version}"
+
+    // compats
+
+    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-forge:7.3.432"
+
+
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }

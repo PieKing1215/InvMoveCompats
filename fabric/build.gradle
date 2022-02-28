@@ -36,7 +36,13 @@ dependencies {
         exclude(group: "net.fabricmc.fabric-api")
     }
 
-    modApi "me.pieking1215.invmove:InvMove-fabric:0.5.0"
+    modApi "me.pieking1215.invmove:InvMove-fabric:${rootProject.invmove_version}"
+
+    // compats
+
+	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:7.3.432"
+
+
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }

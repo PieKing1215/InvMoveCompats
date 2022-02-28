@@ -11,6 +11,7 @@ import java.util.Optional;
 public class InvMoveCompatsFabric implements InvMoveInitializer {
     @Override
     public void init() {
+        InvMoveCompats.isModLoaded = s -> FabricLoader.getInstance().isModLoaded(s);
         InvMoveCompats.init();
     }
 }

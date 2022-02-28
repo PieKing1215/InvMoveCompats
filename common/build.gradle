@@ -11,7 +11,12 @@ dependencies {
     // Remove the next line if you don't want to depend on the API
 //    modApi "dev.architectury:architectury:${rootProject.architectury_version}"
     modApi "me.shedaniel.cloth:cloth-config:${rootProject.cloth_version}"
-    modApi "me.pieking1215.invmove:InvMove:0.5.0"
+    modApi "me.pieking1215.invmove:InvMove:${rootProject.invmove_version}"
+
+    // compats
+
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api:7.3.432"
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-runtime:7.3.432"
 }
 
 architectury {
