@@ -25,7 +25,7 @@ If you want to request support for another mod, please [open an issue](https://g
 
 Feel free to use in packs if you wish.
 
-The only official downloads are from the InvMove GitHub, Curseforge, or Modrinth page.<br>
+The only official downloads are from the InvMoveCompats GitHub, Curseforge, or Modrinth page.<br>
 Be careful downloading them from elsewhere, as unauthorized reposts are not monitored and could contain malware.<br>
 (If you are interested in the mod being added to another platform, please open an issue!)
 
