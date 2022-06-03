@@ -1,8 +1,8 @@
 <h1>InvMoveCompats<br>
   <a href="https://www.curseforge.com/minecraft/mc-mods/invmovecompats"><img src="http://cf.way2muchnoise.eu/versions/%20For%20MC%20_581875_all(555-0C8E8E-fff-010101).svg" alt="Supported Versions"></a>
   <a href="https://github.com/PieKing1215/InvMoveCompats/blob/master/COPYING"><img src="https://img.shields.io/github/license/PieKing1215/InvMoveCompats?style=flat&color=0C8E8E" alt="License"></a>
-  <a href="https://www.curseforge.com/minecraft/mc-mods/invmovecompats"><img src="http://cf.way2muchnoise.eu/full_581875_downloads(E04E14-555-fff-010101-1C1C1C).svg" alt="CF Download Count"></a>
   <a href="https://modrinth.com/mod/invmovecompats"><img src="https://modrinth-utils.vercel.app/api/badge/downloads?id=6IpcGP7T&logo=true" alt="Modrinth Download Count"></a>
+  <a href="https://www.curseforge.com/minecraft/mc-mods/invmovecompats"><img src="http://cf.way2muchnoise.eu/full_581875_downloads(E04E14-555-fff-010101-1C1C1C).svg" alt="CF Download Count"></a>
   <a href="https://ko-fi.com/X8X34Y6MZ"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Donate on ko-fi" width="160px"></a>
 </h1>
 
@@ -12,14 +12,14 @@
 <tr>
   <td>InvMove</td>
   <td><a href="https://github.com/PieKing1215/InvMove">GitHub</a></td>
-  <td><a href="https://www.curseforge.com/minecraft/mc-mods/invmove">CurseForge</a></td>
   <td><a href="https://modrinth.com/mod/invmove">Modrinth</a></td>
+  <td><a href="https://www.curseforge.com/minecraft/mc-mods/invmove">CurseForge</a></td>
 </tr>
 <tr>
   <td>InvMoveCompats</td>
   <td><a href="https://github.com/PieKing1215/InvMoveCompats">GitHub</a></td>
-  <td><a href="https://www.curseforge.com/minecraft/mc-mods/invmovecompats">CurseForge</a></td>
   <td><a href="https://modrinth.com/mod/invmovecompats">Modrinth</a></td>
+  <td><a href="https://www.curseforge.com/minecraft/mc-mods/invmovecompats">CurseForge</a></td>
 </tr>
 </table>
 
@@ -40,7 +40,7 @@ If you want to request support for another mod, please [open an issue](https://g
 
 Feel free to use in packs if you wish.
 
-The only official downloads are from the InvMoveCompats GitHub, Curseforge, or Modrinth page.<br>
+The only official downloads are from the InvMoveCompats GitHub, Modrinth, or Curseforge page.<br>
 Be careful downloading them from elsewhere, as unauthorized reposts are not monitored and could contain malware.<br>
 (If you are interested in the mod being added to another platform, please open an issue!)
 
