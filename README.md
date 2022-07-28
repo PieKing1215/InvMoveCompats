@@ -30,9 +30,9 @@ This mod adds explicit support for the following mods:
 
 | Mod      | Forge | Fabric | Tested Version |
 | -------- | ----- | ------ | -------------- |
-| Roughly Enough Items | ✔️ | ✔️ | 7.3.432 |
-| Just Enough Items | ✔️ | N/A | 9.2.1.69 |
-| Cloth Config | ✔️ | ✔️ | 6.2.57 |
+| Roughly Enough Items | ✔️ | ✔️ | 8.3.519 |
+| Just Enough Items | ✔️ | N/A | 9.7.1.232 ([NOT 10.x yet](https://github.com/PieKing1215/InvMoveCompats/issues/6)) |
+| Cloth Config | ✔️ | ✔️ | 6.2.62 |
 
 If you want to request support for another mod, please [open an issue](https://github.com/PieKing1215/InvMoveCompats/issues)!
 
