@@ -3,8 +3,8 @@ plugins {
 }
 loom {
     forge {
-        mixinConfig "invmove-common.mixins.json"
-        mixinConfig "invmove.mixins.json"
+        mixinConfig "invmove_compat-common.mixins.json"
+        mixinConfig "invmove_compat.mixins.json"
     }
 }
 
@@ -49,14 +49,14 @@ dependencies {
     // Remove the next line if you don't want to depend on the API
 //    modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
     modApi "me.shedaniel.cloth:cloth-config-forge:${rootProject.cloth_version}"
-    modApi "me.pieking1215.invmove:InvMove-forge:${rootProject.invmove_version}"
+    modApi "me.pieking1215.invmove.18:InvMove-forge:${rootProject.invmove_version}"
 
     // compats
 
-    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-forge:7.3.432"
+    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-forge:8.3.519"
 
-    modCompileOnly "mezz.jei:jei-1.18.1:9.2.1.69"
-//    modRuntimeOnly "mezz.jei:jei-1.18.1:9.2.1.69"
+    modCompileOnly "mezz.jei:jei-1.18.2:9.7.1.232"
+//    modRuntimeOnly "mezz.jei:jei-1.18.2:9.7.1.232"
 
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }

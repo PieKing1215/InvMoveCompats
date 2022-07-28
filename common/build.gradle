@@ -10,8 +10,15 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
     // Remove the next line if you don't want to depend on the API
 //    modApi "dev.architectury:architectury:${rootProject.architectury_version}"
-    modApi "me.shedaniel.cloth:cloth-config:${rootProject.cloth_version}"
-    modApi "me.pieking1215.invmove:InvMove:${rootProject.invmove_version}"
+    modApi("me.shedaniel.cloth:cloth-config:${rootProject.cloth_version}"){
+        exclude(group: "net.fabricmc")
+        exclude(group: "net.fabricmc.fabric-api")
+    }
+    modApi("me.pieking1215.invmove.18:InvMove:${rootProject.invmove_version}") {
+        exclude(group: "me.pieking1215.invmove.crossversion")
+        exclude(group: "net.fabricmc")
+        exclude(group: "net.fabricmc.fabric-api")
+    }
 
     // compats
 
@@ -20,7 +27,7 @@ dependencies {
 }
 
 architectury {
-    common()
+    common("forge", "fabric")
 }
 
 loom {

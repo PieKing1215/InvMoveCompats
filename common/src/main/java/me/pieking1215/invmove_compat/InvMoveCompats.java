@@ -1,6 +1,6 @@
 package me.pieking1215.invmove_compat;
 
-import me.pieking1215.invmove.module.Modules;
+import me.pieking1215.invmove.InvMove;
 import me.pieking1215.invmove_compat.compat.ClothConfigCompat;
 import me.pieking1215.invmove_compat.compat.REICompat;
 
@@ -13,11 +13,11 @@ public class InvMoveCompats {
 
     public static void init() {
         if (isModLoaded.apply("roughlyenoughitems")) {
-            Modules.modules.add(new REICompat());
+            InvMove.registerModule(new REICompat());
         }
 
         if (isModLoaded.apply("cloth-config") || isModLoaded.apply("cloth_config")) {
-            Modules.modules.add(new ClothConfigCompat());
+            InvMove.registerModule(new ClothConfigCompat());
         }
     }
 }

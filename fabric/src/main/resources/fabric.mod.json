@@ -36,6 +36,6 @@
   "depends": {
     "fabric": "*",
     "minecraft": ">=1.18.1",
-    "invmove": ">=0.6.1"
+    "invmove": ">=0.8.0"
   }
 }

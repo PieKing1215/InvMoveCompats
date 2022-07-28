@@ -27,11 +27,10 @@ jobs:
         repository: PieKing1215/InvMove
         
     - run: chmod +x ./gradlew
+    - run: chmod +x ./publish_all_maven_local.sh
 
     - name: InvMove publishToMavenLocal
-      uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
-      with:
-        arguments: publishToMavenLocal
+      run: ./publish_all_maven_local.sh
         
     - uses: actions/checkout@v2
     

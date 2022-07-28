@@ -1,6 +1,6 @@
 package me.pieking1215.invmove_compat.fabric;
 
-import me.pieking1215.invmove.fabric.InvMoveInitializer;
+import me.pieking1215.invmove.fabric_like.InvMoveInitializer;
 import me.pieking1215.invmove_compat.InvMoveCompats;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
