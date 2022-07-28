@@ -30,9 +30,13 @@ jobs:
     - run: chmod +x ./gradlew
     - run: chmod +x ./publish_all_maven_local.sh
 
+    - run: tree /home/runner/.m2/repository/
+
     - name: InvMove publishToMavenLocal
       run: ./publish_all_maven_local.sh
-        
+      
+    - run: tree /home/runner/.m2/repository/
+    
     - uses: actions/checkout@v2
     
     - run: chmod +x ./gradlew
