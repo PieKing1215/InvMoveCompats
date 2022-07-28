@@ -25,6 +25,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         repository: PieKing1215/InvMove
+        ref: "multiversion"
         
     - run: chmod +x ./gradlew
     - run: chmod +x ./publish_all_maven_local.sh
