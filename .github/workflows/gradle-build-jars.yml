@@ -30,6 +30,7 @@ jobs:
     - run: chmod +x ./gradlew
     - run: chmod +x ./publish_all_maven_local.sh
     
+    - run: mvn help:evaluate -Dexpression=settings.localRepository -q -DforceStdout
     - run: tree /home/runner/.m2/
     - run: mkdir /home/runner/.m2/
     - run: tree /home/runner/.m2/
