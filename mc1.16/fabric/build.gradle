@@ -36,7 +36,7 @@ dependencies {
 
     modImplementation "com.terraformersmc:modmenu:${modmenu_version}"
 
-    modApi("me.pieking1215.invmove.16:InvMove-fabric:0.8.1")
+    modApi("me.pieking1215.invmove.16:InvMove-fabric:${invmove_version}")
 
     common(project(path: "${parent.path}:common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: "${parent.path}:common", configuration: "transformProductionFabric")) { transitive false }

@@ -36,8 +36,8 @@ dependencies {
 
     modRuntimeOnly "me.shedaniel.cloth:cloth-config-forge:${cloth_version}"
 
-    modApi("me.pieking1215.invmove.19:InvMove-forge:0.8.1")
-    modImplementation("me.pieking1215.invmove.19:InvMove-forge:0.8.1")
+    modApi("me.pieking1215.invmove.19:InvMove-forge:${invmove_version}")
+    modImplementation("me.pieking1215.invmove.19:InvMove-forge:${invmove_version}")
 
     common(project(path: "${parent.path}:common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: "${parent.path}:common", configuration: "transformProductionForge")) { transitive = false }

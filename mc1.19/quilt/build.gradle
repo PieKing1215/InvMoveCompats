@@ -33,7 +33,7 @@ dependencies {
         exclude(group: "net.fabricmc.fabric-api")
     }
 
-    modImplementation("me.pieking1215.invmove.19:InvMove-quilt:0.8.1")
+    modImplementation("me.pieking1215.invmove.19:InvMove-quilt:${invmove_version}")
 
     common(project(path: "${parent.path}:common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: "${parent.path}:common", configuration: "transformProductionQuilt")) { transitive false }
