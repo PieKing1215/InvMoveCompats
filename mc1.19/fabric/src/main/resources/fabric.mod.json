@@ -37,9 +37,9 @@
   "depends": {
     "minecraft": ">=1.19",
     "fabric": "*",
-    "cloth-config": ">=7"
+    "invmove": ">=0.8.2"
   },
   "breaks": {
-    "invmove_compat": "<=0.1.0"
+    "invmove": "<=0.8.1"
   }
 }

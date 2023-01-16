@@ -10,12 +10,18 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modApi "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
 
-    modApi("me.pieking1215.invmove.19:InvMove-fabric:${invmove_version}")
+    modApi("me.pieking1215.invmove.19:InvMove-fabric:${invmove_version}") {
+        exclude(group: "me.pieking1215.invmove.crossversion")
+        exclude(group: "net.fabricmc")
+        exclude(group: "net.fabricmc.fabric-api")
+    }
 
     modImplementation("com.terraformersmc:modmenu:${modmenu_version}") {
         exclude(group: "net.fabricmc")
         exclude(group: "net.fabricmc.fabric-api")
     }
+
+    modApi "dev.emi:emi:${emi_version}"
 
     compileClasspath(project(path: "${parent.path}:common", configuration: "namedElements")) { transitive false }
 }

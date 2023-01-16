@@ -27,8 +27,8 @@ ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.invmovecompats]]
-modId = "cloth_config"
+modId = "invmove"
 mandatory = true
-versionRange = "[7,)"
+versionRange = "[0.8.2,)"
 ordering = "NONE"
 side = "CLIENT"

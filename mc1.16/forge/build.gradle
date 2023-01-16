@@ -44,10 +44,11 @@ sourceSets {
 dependencies {
     forge "net.minecraftforge:forge:${forge_version}"
 
-//    modCompileOnly("me.pieking1215.invmove.16:InvMove:0.8.1")
-//    forgeRuntimeLibrary("me.pieking1215.invmove.16:InvMove:0.8.1")
-    implementation("me.pieking1215.invmove.16:InvMove-forge:${invmove_version}")
-    forgeRuntimeLibrary("me.pieking1215.invmove.16:InvMove-forge:${invmove_version}")
+    modCompileOnly "me.shedaniel.cloth:cloth-config-forge:${cloth_version}"
+
+    api("me.pieking1215.invmove.16:InvMove-forge:${invmove_version}") {
+        exclude(group: "me.pieking1215.invmove.crossversion")
+    }
 
 //    modCompileOnly("mezz.jei:jei-1.16.5:7.7.1.153")
 //    modRuntimeOnly("mezz.jei:jei-1.16.5:7.7.1.153")

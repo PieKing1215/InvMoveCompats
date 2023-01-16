@@ -36,9 +36,9 @@
   "depends": {
     "minecraft": ">=1.16",
     "fabricloader": ">=0.13",
-    "invmove": ">=0.8.1"
+    "invmove": ">=0.8.2"
   },
   "breaks": {
-    "invmove": "<=0.8.0"
+    "invmove": "<=0.8.1"
   }
 }

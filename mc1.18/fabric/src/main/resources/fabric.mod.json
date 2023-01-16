@@ -37,9 +37,9 @@
   "depends": {
     "minecraft": "1.18.x",
     "fabric": "*",
-    "invmove": ">=0.8.1"
+    "invmove": ">=0.8.2"
   },
   "breaks": {
-    "invmove": "<=0.8.0"
+    "invmove": "<=0.8.1"
   }
 }

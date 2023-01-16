@@ -28,6 +28,8 @@ dependencies {
     modApi("me.pieking1215.invmove.18:InvMove-fabric:${invmove_version}")
     modImplementation("me.pieking1215.invmove.18:InvMove-fabric:${invmove_version}")
 
+    modRuntimeOnly "dev.emi:emi:${emi_version}"
+
     common(project(path: "${parent.path}:common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: "${parent.path}:common", configuration: "transformProductionFabric")) { transitive false }
 

@@ -2,7 +2,16 @@
 dependencies {
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
 
-    //modCompileOnly("me.pieking1215.invmove.16:InvMove:0.8.1")
+    modApi("me.pieking1215.invmove.16:InvMove:${invmove_version}") {
+        exclude(group: "me.pieking1215.invmove.crossversion")
+        exclude(group: "net.fabricmc")
+        exclude(group: "net.fabricmc.fabric-api")
+    }
+
+    modApi("me.shedaniel.cloth:cloth-config:${cloth_version}"){
+        exclude(group: "net.fabricmc")
+        exclude(group: "net.fabricmc.fabric-api")
+    }
 }
 
 processResources {
