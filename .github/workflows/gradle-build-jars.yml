@@ -49,10 +49,11 @@ jobs:
     
     - name: Prep files
       run: |
+        rm -f ./build/InvMove-*.jar
         for f in ./build/*.jar; do mv "$f" "$(echo "$f" | sed -E 's/(.+)-(.+)-.+-(.+)/\1-\2-${{ steps.short-sha.outputs.sha }}-\3/')"; done
 
     - name: Upload a Build Artifact
-          uses: actions/upload-artifact@v2.3.1
-          with:
-            name: "InvMoveCompats-build-${{ steps.short-sha.outputs.sha }}"
-            path: ./build/
+      uses: actions/upload-artifact@v2.3.1
+      with:
+        name: "InvMoveCompats-build-${{ steps.short-sha.outputs.sha }}"
+        path: ./build/
