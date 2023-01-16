@@ -22,6 +22,12 @@
     ]
   },
 
+  "custom": {
+    "modmenu": {
+      "parent": "invmove"
+    }
+  },
+
   "mixins": [
     "invmovecompats-fabric.mixins.json",
     "invmovecompats-fabric-like.mixins.json",

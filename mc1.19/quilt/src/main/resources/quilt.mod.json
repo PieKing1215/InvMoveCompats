@@ -54,5 +54,8 @@
         "versions": "<=0.8.0"
       }
     ]
+  },
+  "modmenu": {
+    "parent": "invmove"
   }
 }
