@@ -29,9 +29,12 @@ jobs:
     - run: chmod +x ./gradlew
 
     - name: InvMove publishToMavenLocal
-      uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
+      uses: nick-fields/retry@v2
       with:
-        arguments: publishToMavenLocal
+        timeout_minutes: 30
+        max_attempts: 3
+        retry_on: error
+        command: ./publish_all_maven_local.sh
         
     - uses: actions/checkout@v2
     
