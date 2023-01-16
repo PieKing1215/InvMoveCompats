@@ -1,14 +1,13 @@
 package me.pieking1215.invmovecompats.forge;
 
-import me.pieking1215.invmovecompats.InvMove19;
+import me.pieking1215.invmovecompats.InvMoveCompats19;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod(InvMove19.MOD_ID)
+@Mod(InvMoveCompats19.MOD_ID)
 public class InvMoveForge {
     public InvMoveForge() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::imEnqueue);

@@ -23,6 +23,11 @@ dependencies {
         exclude(group: "net.fabricmc")
         exclude(group: "net.fabricmc.fabric-api")
     }
+
+    //
+
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api:${rei_version}"
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin:${rei_version}"
 }
 
 architectury {

@@ -1,0 +1,9 @@
+package me.pieking1215.invmovecompats;
+
+import me.pieking1215.invmovecompats.module.REIModule19;
+
+public abstract class InvMoveCompats19 extends InvMoveCompats {
+    public static void init() {
+        InvMoveCompats.register(REIModule19::new, "roughlyenoughitems");
+    }
+}

@@ -31,7 +31,11 @@ dependencies {
 
     modImplementation("me.pieking1215.invmove.19:InvMove-fabric:${invmove_version}")
 
+    //
+
     modRuntimeOnly "dev.emi:emi:${emi_version}"
+
+    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
 
     common(project(path: "${parent.path}:common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: "${parent.path}:common", configuration: "transformProductionFabric")) { transitive false }

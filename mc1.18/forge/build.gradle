@@ -39,6 +39,12 @@ dependencies {
     modApi("me.pieking1215.invmove.18:InvMove-forge:${invmove_version}")
     modImplementation("me.pieking1215.invmove.18:InvMove-forge:${invmove_version}")
 
+    //
+
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-forge:${rei_version}"
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-forge:${rei_version}"
+    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-forge:${rei_version}"
+
     common(project(path: "${parent.path}:common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: "${parent.path}:common", configuration: "transformProductionForge")) { transitive = false }
 }

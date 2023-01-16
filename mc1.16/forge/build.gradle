@@ -50,8 +50,11 @@ dependencies {
         exclude(group: "me.pieking1215.invmove.crossversion")
     }
 
-//    modCompileOnly("mezz.jei:jei-1.16.5:7.7.1.153")
-//    modRuntimeOnly("mezz.jei:jei-1.16.5:7.7.1.153")
+    //
+
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-forge:${rei_version_forge}"
+//    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-forge:${rei_version_forge}"
+
 
     common(project(path: "${parent.path}:common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: "${parent.path}:common", configuration: "transformProductionForge")) { transitive = false }

@@ -43,6 +43,11 @@ dependencies {
         exclude(group: "net.fabricmc.fabric-api")
     }
 
+    //
+
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api:${rei_version_fabric}"
+//    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-runtime:${rei_version_fabric}"
+
     common(project(path: "${parent.path}:common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: "${parent.path}:common", configuration: "transformProductionFabric")) { transitive false }
 }
