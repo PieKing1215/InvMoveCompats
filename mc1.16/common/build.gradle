@@ -1,0 +1,32 @@
+
+dependencies {
+    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+
+    //modCompileOnly("me.pieking1215.invmove.16:InvMove:0.8.1")
+}
+
+processResources {
+    from project(":crossversion:common").sourceSets.main.resources
+}
+
+architectury {
+    common(enabled_platforms.split(","))
+}
+
+loom {
+    accessWidenerPath = project(":crossversion:common").file("src/main/resources/invmovecompats.accesswidener")
+}
+
+publishing {
+    publications {
+        mavenCommon(MavenPublication) {
+            artifactId = maven_artifact_id
+            from components.java
+        }
+    }
+
+    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+    repositories {
+        // Add repositories to publish to here.
+    }
+}
