@@ -101,6 +101,7 @@ sourcesJar {
     def commonSources = project("${parent.path}:common").sourcesJar
     dependsOn commonSources
     from commonSources.archiveFile.map { zipTree(it) }
+    duplicatesStrategy 'exclude'
 }
 
 components.java {
