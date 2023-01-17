@@ -37,6 +37,8 @@ dependencies {
 
     modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
 
+//    modRuntimeOnly "mezz.jei:jei-${jei_minecraft_version}-fabric:${jei_version}"
+
     common(project(path: "${parent.path}:common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: "${parent.path}:common", configuration: "transformProductionFabric")) { transitive false }
 

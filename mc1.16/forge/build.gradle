@@ -54,6 +54,8 @@ dependencies {
 
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-forge:${rei_version_forge}"
 //    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-forge:${rei_version_forge}"
+    modCompileOnly "mezz.jei:jei-1.16.5:${jei_version}"
+    modRuntimeOnly "mezz.jei:jei-1.16.5:${jei_version}"
 
 
     common(project(path: "${parent.path}:common", configuration: "namedElements")) { transitive false }
