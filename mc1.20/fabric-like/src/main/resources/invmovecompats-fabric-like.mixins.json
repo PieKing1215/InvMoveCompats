@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.pieking1215.invmovecompats.fabric_like.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "client": [
+  ],
+  "mixins": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "InvMoveCompats-mc1.19_fabric-like-refmap.json"
+}

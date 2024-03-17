@@ -27,6 +27,11 @@ dependencies {
 
 processResources {
     from project(":crossversion:common").sourceSets.main.resources
+    duplicatesStrategy 'exclude'
+}
+
+sourcesJar {
+    duplicatesStrategy 'exclude'
 }
 
 architectury {

@@ -11,6 +11,6 @@ public class InvMoveCompatsFabricLike implements InvMoveInitializer {
     public void init() {
         InvMoveCompats.init();
         InvMoveCompats19.init();
-        InvMoveCompats.register(EMIModule19::new, "emi");
+        InvMoveCompats.register(() -> new EMIModule19(), "emi");
     }
 }

@@ -8,6 +8,8 @@ import me.shedaniel.rei.api.client.REIRuntime;
 import me.shedaniel.rei.api.client.gui.widgets.TextField;
 import net.minecraft.client.gui.screens.Screen;
 
+import java.lang.reflect.Method;
+
 public class REIModule19 extends ModuleImpl {
     @Override
     public String getId() {
@@ -22,11 +24,24 @@ public class REIModule19 extends ModuleImpl {
     @Override
     public Movement shouldAllowMovement(Screen screen) {
         TextField sb = REIRuntime.getInstance().getSearchTextField();
-        if (InvMoveConfig.MOVEMENT.TEXT_FIELD_DISABLES.get()
-                && sb != null
-                && sb.isFocused()) {
-            return Movement.SUGGEST_DISABLE;
-        }
+//        System.out.println(sb);
+//        if (sb != null) {
+//            for (Method declaredMethod : sb.getClass().getDeclaredMethods()) {
+//                System.out.println(declaredMethod.getName());
+//            }
+//            System.out.println("=== TextField " + TextField.class.getSuperclass());
+//            for (Method declaredMethod : TextField.class.getDeclaredMethods()) {
+//                System.out.println(declaredMethod.getName());
+//            }
+//        }
+        // calling isFocused results in NoSuchMethodError at runtime on forge
+        // my guess is it doesn't remap because TextField is the name of a vanilla class
+//        System.out.println(sb.isFocused());
+//        if (InvMoveConfig.MOVEMENT.TEXT_FIELD_DISABLES.get()
+//                && sb != null
+//                && sb.isFocused()) {
+//            return Movement.SUGGEST_DISABLE;
+//        }
 
         return super.shouldAllowMovement(screen);
     }

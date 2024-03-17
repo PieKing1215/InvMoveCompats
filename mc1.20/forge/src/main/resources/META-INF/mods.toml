@@ -1,0 +1,34 @@
+modLoader = "javafml"
+loaderVersion = "[46,)"
+license = "LGPL-3.0-only"
+issueTrackerURL="${repo}/issues"
+
+[[mods]]
+modId = "invmovecompats"
+version = "${version}"
+displayName = "InvMoveCompats"
+displayURL="${repo}"
+authors = "PieKing1215"
+logoFile = "icon.png"
+description = '''${description}'''
+
+[[dependencies.invmovecompats]]
+modId = "forge"
+mandatory = true
+versionRange = "[46,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.invmovecompats]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.invmovecompats]]
+modId = "invmove"
+mandatory = true
+versionRange = "[0.8.4,)"
+ordering = "NONE"
+side = "CLIENT"

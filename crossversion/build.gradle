@@ -1,5 +1,5 @@
 plugins {
-    id "dev.architectury.loom" version "1.0-SNAPSHOT" apply false
+    id "dev.architectury.loom" version "1.1-SNAPSHOT" apply false
 }
 
 apply plugin: 'java'
@@ -10,16 +10,16 @@ java {
 }
 
 subprojects {
-    apply plugin: "dev.architectury.loom"
-
-    loom {
-        silentMojangMappingsLicense()
-    }
-
-    dependencies {
-        minecraft "com.mojang:minecraft:${minecraft_version}"
-        mappings loom.officialMojangMappings()
-    }
+//    apply plugin: "dev.architectury.loom"
+//
+//    loom {
+//        silentMojangMappingsLicense()
+//    }
+//
+//    dependencies {
+//        minecraft "com.mojang:minecraft:${minecraft_version}"
+//        mappings loom.officialMojangMappings()
+//    }
 }
 
 allprojects {

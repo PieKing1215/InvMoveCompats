@@ -15,6 +15,7 @@ public class InvMoveCompats {
     }
 
     public static void register(Supplier<Module> moduleSup, String... modid) {
+        System.out.println("[InvMoveCompats] Checking for modids: " + Arrays.toString(modid));
         if(Arrays.stream(modid).anyMatch(s -> InvMove.instance().hasMod(s))) {
             InvMove.registerModule(moduleSup.get());
         }

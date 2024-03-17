@@ -23,7 +23,8 @@ dependencies {
 
     //
 
-    modApi "dev.emi:emi:${emi_version}"
+    // TODO: EMI 1.0+ is available on forge
+    modApi "dev.emi:emi-fabric:${emi_version}"
 
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${rei_version}"

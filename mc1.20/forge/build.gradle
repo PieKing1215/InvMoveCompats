@@ -1,0 +1,114 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "7.1.2"
+}
+
+loom {
+    forge {
+        mixinConfig "invmovecompats.mixins.json"
+        mixinConfig "invmovecompats-forge.mixins.json"
+    }
+}
+
+architectury {
+    platformSetupLoomIde()
+    forge()
+}
+
+loom {
+    accessWidenerPath = project("${parent.path}:common").loom.accessWidenerPath
+
+    forge {
+        convertAccessWideners = true
+        extraAccessWideners.add loom.accessWidenerPath.get().asFile.name
+    }
+}
+
+configurations {
+    common
+    shadowCommon
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentForge.extendsFrom common
+}
+
+dependencies {
+    forge "net.minecraftforge:forge:${forge_version}"
+
+    modRuntimeOnly "me.shedaniel.cloth:cloth-config-forge:${cloth_version}"
+
+    modApi("me.pieking1215.invmove.20:InvMove-forge:${invmove_version}")
+    modImplementation("me.pieking1215.invmove.20:InvMove-forge:${invmove_version}")
+
+    //
+
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-forge:${rei_version}"
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-forge:${rei_version}"
+    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-forge:${rei_version}"
+
+    modCompileOnly "mezz.jei:jei-${jei_minecraft_version}-forge-api:${jei_version}"
+    modRuntimeOnly "mezz.jei:jei-${jei_minecraft_version}-forge:${jei_version}"
+
+    common(project(path: "${parent.path}:common", configuration: "namedElements")) { transitive false }
+    shadowCommon(project(path: "${parent.path}:common", configuration: "transformProductionForge")) { transitive = false }
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "crossversionRefmap", "${archives_base_name}-${project.parent.name}_common-refmap.json"
+
+    filesMatching("META-INF/mods.toml") {
+        expand "version": project.version,
+                "description": mod_description,
+                "repo": mod_repo
+    }
+
+    filesMatching("invmovecompats.mixins.json") {
+        expand "crossversionRefmap": "${archives_base_name}-${project.parent.name}_common-refmap.json"
+    }
+
+    from project("${parent.path}:common").sourceSets.main.resources
+}
+
+shadowJar {
+    exclude "fabric.mod.json"
+    exclude "architectury.common.json"
+
+    configurations = [project.configurations.shadowCommon]
+    archiveClassifier = "dev-shadow"
+}
+
+remapJar {
+    input.set shadowJar.archiveFile
+    dependsOn shadowJar
+    archiveClassifier = null
+}
+
+jar {
+    archiveClassifier = "dev"
+}
+
+sourcesJar {
+    def commonSources = project("${parent.path}:common").sourcesJar
+    dependsOn commonSources
+    from commonSources.archiveFile.map { zipTree(it) }
+}
+
+components.java {
+    withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
+        skip()
+    }
+}
+
+publishing {
+    publications {
+        mavenForge(MavenPublication) {
+            artifactId = maven_artifact_id + "-" + project.name
+            from components.java
+        }
+    }
+
+    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+    repositories {
+        // Add repositories to publish to here.
+    }
+}

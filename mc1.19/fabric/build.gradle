@@ -33,7 +33,8 @@ dependencies {
 
     //
 
-    modRuntimeOnly "dev.emi:emi:${emi_version}"
+    // TODO: EMI 1.0+ is available on forge
+    modRuntimeOnly "dev.emi:emi-fabric:${emi_version}"
 
     modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
 

@@ -1,0 +1,35 @@
+architectury {
+    common(enabled_platforms.split(","))
+}
+
+loom {
+    accessWidenerPath = project("${parent.path}:common").loom.accessWidenerPath
+}
+
+dependencies {
+    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    modApi "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+
+    modApi("me.pieking1215.invmove.20:InvMove-fabric:${invmove_version}") {
+        exclude(group: "me.pieking1215.invmove.crossversion")
+        exclude(group: "net.fabricmc")
+        exclude(group: "net.fabricmc.fabric-api")
+    }
+
+    modImplementation("com.terraformersmc:modmenu:${modmenu_version}") {
+        exclude(group: "net.fabricmc")
+        exclude(group: "net.fabricmc.fabric-api")
+    }
+
+    //
+
+    // TODO: EMI 1.0+ is available on forge
+    modApi "dev.emi:emi-fabric:${emi_version}"
+
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${rei_version}"
+
+    modCompileOnly "mezz.jei:jei-${jei_minecraft_version}-fabric-api:${jei_version}"
+
+    compileOnly(project(path: "${parent.path}:common", configuration: "namedElements")) { transitive false }
+}
