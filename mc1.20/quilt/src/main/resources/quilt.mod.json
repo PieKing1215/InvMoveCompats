@@ -28,7 +28,7 @@
     },
     "entrypoints": {
       "invmove": "me.pieking1215.invmovecompats.fabric_like.InvMoveCompatsFabricLike",
-      "jei_mod_plugin": "me.pieking1215.invmovecompats.module.JEIPlugin19"
+      "jei_mod_plugin": "me.pieking1215.invmovecompats.module.JEIPlugin20"
     },
     "intermediate_mappings": "net.fabricmc:intermediary",
     "depends": [
