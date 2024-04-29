@@ -33,6 +33,8 @@ dependencies {
         exclude(group: "net.fabricmc.fabric-api")
     }
 
+    modRuntimeOnly "dev.emi:emi-fabric:${emi_version}"
+
     modImplementation("me.pieking1215.invmove.20:InvMove-quilt:${invmove_version}")
 
     common(project(path: "${parent.path}:common", configuration: "namedElements")) { transitive false }

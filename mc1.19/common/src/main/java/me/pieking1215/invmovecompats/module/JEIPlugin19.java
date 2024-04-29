@@ -6,7 +6,7 @@ import mezz.jei.api.runtime.IJeiRuntime;
 import net.minecraft.resources.ResourceLocation;
 
 @JeiPlugin
-public class JEIPugin20 implements IModPlugin {
+public class JEIPlugin19 implements IModPlugin {
 
     public static IJeiRuntime runtime = null;
 

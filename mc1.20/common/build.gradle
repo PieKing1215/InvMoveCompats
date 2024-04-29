@@ -13,7 +13,7 @@ sourceSets {
 dependencies {
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
 
-    modApi("me.pieking1215.invmove.19:InvMove:${invmove_version}") {
+    modApi("me.pieking1215.invmove.20:InvMove:${invmove_version}") {
         exclude(group: "me.pieking1215.invmove.crossversion")
         exclude(group: "net.fabricmc")
         exclude(group: "net.fabricmc.fabric-api")
@@ -25,6 +25,9 @@ dependencies {
     }
 
     //
+
+    // need to depend on internals since API doesn't expose EmiScreenManager.search (only isFocused which doesn't cover all cases)
+    modCompileOnly "dev.emi:emi-xplat-intermediary:${emi_version}"
 
     modApi "me.shedaniel:RoughlyEnoughItems-api:${rei_version}"
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin:${rei_version}"

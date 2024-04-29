@@ -1,4 +1,4 @@
-package me.pieking1215.invmovecompats.fabric_like.module;
+package me.pieking1215.invmovecompats.module;
 
 import dev.emi.emi.api.EmiApi;
 import dev.emi.emi.screen.EmiScreenManager;

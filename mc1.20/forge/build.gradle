@@ -41,6 +41,9 @@ dependencies {
 
     //
 
+    compileOnly "dev.emi:emi-forge:${emi_version}:api"
+    runtimeOnly "dev.emi:emi-forge:${emi_version}"
+
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-forge:${rei_version}"
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-forge:${rei_version}"
     modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-forge:${rei_version}"

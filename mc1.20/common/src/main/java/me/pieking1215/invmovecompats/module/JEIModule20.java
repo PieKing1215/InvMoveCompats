@@ -5,7 +5,6 @@ import me.pieking1215.invmove.InvMoveConfig;
 import me.pieking1215.invmove.module.CVComponent;
 import me.pieking1215.invmove.module.ModuleImpl;
 import mezz.jei.api.constants.ModIds;
-import mezz.jei.common.Internal;
 import net.minecraft.client.gui.screens.Screen;
 
 public class JEIModule20 extends ModuleImpl {
@@ -22,8 +21,8 @@ public class JEIModule20 extends ModuleImpl {
     @Override
     public Movement shouldAllowMovement(Screen screen) {
         if (InvMoveConfig.MOVEMENT.TEXT_FIELD_DISABLES.get()
-                && JEIPugin20.runtime != null
-                && JEIPugin20.runtime.getIngredientListOverlay().hasKeyboardFocus()) {
+                && JEIPlugin20.runtime != null
+                && JEIPlugin20.runtime.getIngredientListOverlay().hasKeyboardFocus()) {
             return Movement.SUGGEST_DISABLE;
         }
 
