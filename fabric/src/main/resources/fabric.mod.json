@@ -18,6 +18,9 @@
   "entrypoints": {
     "invmove": [
       "me.pieking1215.invmove_compat.fabric.InvMoveCompatsFabric"
+    ],
+    "jei_mod_plugin": [
+      "me.pieking1215.invmove_compat.compat.JEIPlugin"
     ]
   },
   "custom": {

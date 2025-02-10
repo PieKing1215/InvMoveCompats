@@ -6,6 +6,8 @@ import me.pieking1215.invmove_compat.compat.ClothConfigCompat;
 import me.pieking1215.invmove_compat.compat.REICompat;
 //? if emi
 import me.pieking1215.invmove_compat.compat.EMICompat;
+//? if jei
+import me.pieking1215.invmove_compat.compat.JEICompat;
 
 public abstract class InvMoveCompats {
     public static final String MOD_ID = "invmove_compat";
@@ -24,6 +26,12 @@ public abstract class InvMoveCompats {
         //? if emi {
         if (InvMove.instance().hasMod("emi")) {
             InvMove.registerModule(new EMICompat());
+        }
+        //?}
+
+        //? if jei {
+        if (InvMove.instance().hasMod("jei")) {
+            InvMove.registerModule(new JEICompat());
         }
         //?}
     }

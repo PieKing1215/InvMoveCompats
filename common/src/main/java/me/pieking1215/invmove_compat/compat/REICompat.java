@@ -1,5 +1,7 @@
 package me.pieking1215.invmove_compat.compat;
 
+//? if rei {
+
 import me.pieking1215.invmove.InvMoveConfig;
 import me.pieking1215.invmove.module.ModuleImpl;
 import net.minecraft.client.gui.components.events.GuiEventListener;
@@ -82,3 +84,5 @@ public class REICompat extends ModuleImpl {
         return super.shouldAllowMovement(screen);
     }
 }
+
+//?}

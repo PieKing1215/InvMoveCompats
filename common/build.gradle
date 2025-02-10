@@ -1,7 +1,12 @@
 apply plugin: "maven-publish"
 
 repositories {
+    // rei
     maven { url "https://maven.shedaniel.me/" }
+    // jei
+    maven { url = "https://maven.blamejared.com/" }
+    maven { url = "https://modmaven.dev" }
+    // invmove
     mavenLocal()
 }
 
@@ -35,6 +40,10 @@ dependencies {
     if (hasProp("emi_version")) {
         modCompileOnly "dev.emi:${get("emi_maven")}:${get("emi_version")}:api"
         modCompileOnly "dev.emi:${get("emi_maven")}:${get("emi_version")}"
+    }
+
+    if (hasProp("jei_version")) {
+        modCompileOnly "mezz.jei:${get("jei_maven")}:${get("jei_version")}"
     }
 }
 
