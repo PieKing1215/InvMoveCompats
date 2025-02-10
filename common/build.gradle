@@ -34,7 +34,6 @@ dependencies {
 
     if (hasProp("rei_version")) {
         modCompileOnly "me.shedaniel:RoughlyEnoughItems-api:${get("rei_version")}"
-        modCompileOnly "me.shedaniel:RoughlyEnoughItems-runtime:${get("rei_version")}"
     }
 
     if (hasProp("emi_version")) {

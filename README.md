@@ -29,9 +29,9 @@ This mod primarily targets mods that have screens that don't work through that s
 This mod is client-side, so it does not need to be installed on the server for it to work.
 
 This mod adds explicit support for the following mods:
-- REI
-- JEI
-- EMI
+- [REI](https://modrinth.com/mod/rei)
+- [JEI](https://modrinth.com/mod/jei)
+- [EMI](https://modrinth.com/mod/emi)
 
 If you want to request support for another mod, please [open an issue](https://github.com/PieKing1215/InvMoveCompats/issues)!
 

@@ -13,15 +13,22 @@ public class JEIPlugin implements IModPlugin {
     @Override
     public @NotNull ResourceLocation getPluginUid() {
         //? if >=1.21 {
-        return ResourceLocation.parse("invmove:jei_plugin");
-        //?} else
-        /*return new ResourceLocation("invmove:jei_plugin");*/
+        /*return ResourceLocation.parse("invmove:jei_plugin");
+        *///?} else
+        return new ResourceLocation("invmove:jei_plugin");
     }
 
     @Override
     public void onRuntimeAvailable(IJeiRuntime jeiRuntime) {
-        JEICompat.runtime = jeiRuntime;
+        JEIModule.runtime = jeiRuntime;
     }
+
+    //? if jei: >=11 {
+    @Override
+    public void onRuntimeUnavailable() {
+        JEIModule.runtime = null;
+    }
+    //?}
 }
 
 //?}

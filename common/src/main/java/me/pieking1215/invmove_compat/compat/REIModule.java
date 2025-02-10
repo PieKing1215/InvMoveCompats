@@ -2,7 +2,9 @@ package me.pieking1215.invmove_compat.compat;
 
 //? if rei {
 
+import me.pieking1215.invmove.InvMove;
 import me.pieking1215.invmove.InvMoveConfig;
+import me.pieking1215.invmove.module.CVComponent;
 import me.pieking1215.invmove.module.ModuleImpl;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.screens.Screen;
@@ -10,40 +12,29 @@ import net.minecraft.client.gui.screens.Screen;
 //? if rei: >= 6 {
 import me.shedaniel.rei.api.client.REIRuntime;
 import me.shedaniel.rei.api.client.gui.widgets.TextField;
-import me.shedaniel.rei.impl.client.gui.credits.CreditsScreen;
-import me.shedaniel.rei.impl.client.gui.screen.AbstractDisplayViewingScreen;
-import me.shedaniel.rei.impl.client.gui.screen.UncertainDisplayViewingScreen;
-import me.shedaniel.rei.impl.client.gui.screen.WarningAndErrorScreen;
 //?} else {
 /*import me.shedaniel.rei.api.REIHelper;
 import me.shedaniel.rei.gui.widget.TextFieldWidget;
-import me.shedaniel.rei.gui.credits.CreditsScreen;
-import me.shedaniel.rei.gui.WarningAndErrorScreen;
-import me.shedaniel.rei.gui.RecipeViewingScreen;
 *///?}
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
-@SuppressWarnings("UnstableApiUsage")
-public class REICompat extends ModuleImpl {
+public class REIModule extends ModuleImpl {
     private final Method isFocused;
 
     @Override
     public String getId() {
-        return "roughlyenoughitems";
+        return "rei";
     }
 
-    public REICompat() {
-        super();
+    @Override
+    public CVComponent getTitle() {
+        return CVComponent.literal(InvMove.instance().modNameFromModid("roughlyenoughitems"));
+    }
 
-        register(CreditsScreen.class).movement(Movement.FORCE_DISABLE);
-        register(WarningAndErrorScreen.class).movement(Movement.SUGGEST_DISABLE).background(Background.SUGGEST_SHOW);
-        //? if rei: >= 6 {
-        register(UncertainDisplayViewingScreen.class).movement(Movement.SUGGEST_DISABLE).background(Background.SUGGEST_SHOW);
-        register(AbstractDisplayViewingScreen.class).cfg("recipe").submit();
-        //?} else
-        /*register(RecipeViewingScreen.class).cfg("recipe").submit();*/
+    public REIModule() {
+        super();
 
         // we have to do this with reflection because on some versions REI's TextField::isFocused is incorrectly remapped
         //   in prod because it matches GuiEventListener::isFocused, which makes it crash when called normally
