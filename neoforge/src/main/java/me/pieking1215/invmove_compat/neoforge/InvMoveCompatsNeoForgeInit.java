@@ -1,8 +1,8 @@
-package me.pieking1215.invmove_compat.forge;
+package me.pieking1215.invmove_compat.neoforge;
 
 import me.pieking1215.invmove_compat.InvMoveCompats;
 
-public class InvMoveCompatsForgeInit {
+public class InvMoveCompatsNeoForgeInit {
     static void init() {
         InvMoveCompats.init();
     }

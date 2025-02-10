@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[${forge_min},)"
+loaderVersion = "[4,)"
 issueTrackerURL = "${repo}/issues"
 license = "${license}"
 
@@ -13,22 +13,41 @@ logoFile = "icon.png"
 displayTest="IGNORE_ALL_VERSION"
 
 [[dependencies.${id}]]
-modId = "forge"
-mandatory = true
-versionRange = "[${forge_min},)"
+modId = "neoforge"
+type = "required"
+versionRange = "[${neoforge_min},)"
 ordering = "NONE"
 side = "CLIENT"
 
 [[dependencies.${id}]]
 modId = "minecraft"
-mandatory = true
+type = "required"
 versionRange = "[${minecraft_min},)"
 ordering = "NONE"
 side = "CLIENT"
 
 [[dependencies.${id}]]
+modId = "${cloth_id}"
+type = "required"
+versionRange = "[${cloth_min},)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.${id}]]
 modId = "invmove"
-mandatory = true
+type = "required"
 versionRange = "[${invmove_version},)"
 ordering = "BEFORE"
 side = "CLIENT"
+
+[[dependencies.${id}]]
+modId = "rei"
+type = "optional"
+versionRange = "[${rei_min},)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[mixins]]
+config = "${id}.mixins.json"
+[[mixins]]
+config = "${id}-neoforge.mixins.json"

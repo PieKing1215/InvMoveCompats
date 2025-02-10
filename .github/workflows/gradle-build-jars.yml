@@ -11,52 +11,30 @@ jobs:
       contents: read
 
     steps:
-    - uses: benjlevesque/short-sha@v1.2
-      id: short-sha
-        
-    - name: Set up JDK
-      uses: actions/setup-java@v2
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-        settings-path: ${{ github.workspace }} # location for the settings.xml file
-    
-    - uses: actions/checkout@v2
-      with:
-        repository: PieKing1215/InvMove
-        
-    - run: chmod +x ./gradlew
+      - uses: actions/checkout@v3
 
-    - name: InvMove publishToMavenLocal
-      uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
-      with:
-        arguments: publishToMavenLocal
-        
-    - uses: actions/checkout@v2
-    
-    - run: chmod +x ./gradlew
+      - uses: benjlevesque/short-sha@v1.2
+        id: short-sha
 
-    - name: Build with Gradle
-      uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
-      with:
-        arguments: build
-    
-    - name: Prep files
-      run: |
-        mv ./forge/build/libs/*[0-9].jar "./InvMoveCompats-forge-${{ steps.short-sha.outputs.sha }}.jar"
-        mv ./fabric/build/libs/*[0-9].jar "./InvMoveCompats-fabric-${{ steps.short-sha.outputs.sha }}.jar"
-        
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2.3.1
-      with:
-        # Artifact name
-        name: "InvMoveCompats-forge-${{ steps.short-sha.outputs.sha }}"
-        path: ./*forge*.jar
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
+          settings-path: ${{ github.workspace }} # location for the settings.xml file
 
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2.3.1
-      with:
-        # Artifact name
-        name: "InvMoveCompats-fabric-${{ steps.short-sha.outputs.sha }}"
-        path: ./*fabric*.jar
+      - run: chmod +x ./gradlew
+
+      - name: chiseledBuild
+        run: ./gradlew chiseledBuild --no-daemon
+
+      - name: Prep files
+        run: |
+          for f in ./build/libs/*.jar; do mv "$f" "$(echo "$f" | sed -E 's/(.+)-.+\+(.+)-(.+)/\1-${{ steps.short-sha.outputs.sha }}+\2-\3/')"; done
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: "InvMoveCompats-build-${{ steps.short-sha.outputs.sha }}"
+          path: ./build/libs

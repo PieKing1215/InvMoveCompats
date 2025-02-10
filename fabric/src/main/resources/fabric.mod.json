@@ -1,41 +1,41 @@
 {
   "schemaVersion": 1,
-  "id": "invmove_compat",
+  "id": "${id}",
   "version": "${version}",
-  "name": "InvMove Compat",
-  "description": "Mod compatibilities for InvMove.",
+  "name": "${name}",
+  "description": "${description}",
   "authors": [
-    "PieKing1215"
+    "${author}"
   ],
   "contact": {
-    "homepage": "https://github.com/PieKing1215/InvMoveCompat",
-    "sources": "https://github.com/PieKing1215/InvMoveCompat",
-    "issues": "https://github.com/PieKing1215/InvMoveCompat/issues"
+    "homepage": "${repo}",
+    "sources": "${repo}",
+    "issues": "${repo}/issues"
   },
-  "license": "LGPL v3.0",
+  "license": "${license}",
   "icon": "icon.png",
-
   "environment": "client",
   "entrypoints": {
     "invmove": [
       "me.pieking1215.invmove_compat.fabric.InvMoveCompatsFabric"
     ]
   },
-
   "custom": {
     "modmenu": {
       "parent": "invmove"
     }
   },
-
   "mixins": [
-    "invmove_compat.mixins.json",
-    "invmove_compat-common.mixins.json"
+    "invmove_compat-fabric.mixins.json",
+    "invmove_compat.mixins.json"
   ],
-
+  "accessWidener" : "${id}.accesswidener",
   "depends": {
-    "fabric": "*",
-    "minecraft": ">=1.18.1",
-    "invmove": ">=0.6.1"
+    "fabricloader": "*",
+    "minecraft": ">=${minecraft_min}",
+    "invmove": ">=0.9.0"
+  },
+  "suggests": {
+    "rei": ">=${rei_min}"
   }
 }

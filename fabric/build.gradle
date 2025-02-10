@@ -1,9 +1,8 @@
 plugins {
-    id "com.github.johnrengelman.shadow" version "7.1.2"
+    id 'com.github.johnrengelman.shadow'
 }
 
 repositories {
-    maven { url "https://maven.terraformersmc.com" }
     mavenLocal()
 }
 
@@ -12,92 +11,70 @@ architectury {
     fabric()
 }
 
-loom {
-    accessWidenerPath = project(":common").loom.accessWidenerPath
-}
-
 configurations {
-    common
-    shadowCommon // Don't use shadow from the shadow plugin because we don't want IDEA to index this.
+    common {
+        canBeResolved = true
+        canBeConsumed = false
+    }
     compileClasspath.extendsFrom common
     runtimeClasspath.extendsFrom common
     developmentFabric.extendsFrom common
+
+    // Files in this configuration will be bundled into your mod using the Shadow plugin.
+    // Don't use the `shadow` configuration from the plugin itself as it's meant for excluding files.
+    shadowBundle {
+        canBeResolved = true
+        canBeConsumed = false
+    }
 }
 
 dependencies {
-    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
-    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
-    // Remove the next line if you don't want to depend on the API
-//    modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}"
+    modImplementation "net.fabricmc:fabric-loader:$rootProject.fabric_loader_version"
 
-    modImplementation "com.terraformersmc:modmenu:3.0.1"
+    // Fabric API. This is technically optional, but you probably want it anyway.
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${get("fabric_api")}"
 
-    modApi("me.shedaniel.cloth:cloth-config-fabric:${rootProject.cloth_version}") {
+    modImplementation "com.terraformersmc:modmenu:${get("modmenu_version")}"
+
+    modImplementation("me.shedaniel.cloth:cloth-config-fabric:${get("cloth_version")}") {
+        exclude(group: "net.fabricmc")
         exclude(group: "net.fabricmc.fabric-api")
     }
 
-    modApi "me.pieking1215.invmove:InvMove-fabric:${rootProject.invmove_version}"
+    modApi "me.pieking1215.invmove.fabric:InvMove:${rootProject.invmove_version}"
 
-    // compats
-
-	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:7.3.432"
-
-
-
-    common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
+    common(project(path: ":common:$stonecutter.current.project", configuration: 'namedElements')) { transitive false }
+    shadowBundle project(path: ":common:$stonecutter.current.project", configuration: 'transformProductionFabric')
 }
 
 processResources {
-    inputs.property "version", project.version
+    def props = [
+            "id"              : rootProject.id,
+            "name"            : rootProject.display_name,
+            "description"     : rootProject.description,
+            "author"          : rootProject.author,
+            "license"         : rootProject.license,
+            "repo"            : rootProject.repo,
+            "version"         : project.version,
+            "minecraftVersion": stonecutter.current.project,
+            "minecraft_min"   : get("minecraft_min"),
+            "fabricVersion"   : get("fabric_api"),
+            // NOTE: dash on fabric
+            "cloth_id"        : stonecutter.eval(stonecutter.current.project, ">=1.18") ? "cloth-config" : "cloth-config2",
+            "cloth_min"       : get("cloth_min"),
+            "invmove_version" : rootProject.invmove_version,
+            "rei_min"         : get("rei_min"),
+    ]
 
-    filesMatching("fabric.mod.json") {
-        expand "version": project.version
-    }
-
-    from project(':common').sourceSets.main.resources
+    inputs.properties props
+    filesMatching("fabric.mod.json") { expand props }
 }
 
 shadowJar {
-    exclude "architectury.common.json"
-
-    configurations = [project.configurations.shadowCommon]
-    classifier "dev-shadow"
+    configurations = [project.configurations.shadowBundle]
+    archiveClassifier = 'dev-shadow'
 }
 
 remapJar {
-    injectAccessWidener = true
     input.set shadowJar.archiveFile
-    dependsOn shadowJar
-    classifier null
-}
-
-jar {
-    classifier "dev"
-}
-
-sourcesJar {
-    def commonSources = project(":common").sourcesJar
-    dependsOn commonSources
-    from commonSources.archiveFile.map { zipTree(it) }
-}
-
-components.java {
-    withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
-        skip()
-    }
-}
-
-publishing {
-    publications {
-        mavenFabric(MavenPublication) {
-            artifactId = rootProject.archives_base_name + "-" + project.name
-            from components.java
-        }
-    }
-
-    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-    repositories {
-        // Add repositories to publish to here.
-    }
 }
