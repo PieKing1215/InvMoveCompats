@@ -24,7 +24,6 @@ public abstract class InvMoveCompats {
         InvMoveCompats.register(REIModule::new, "roughlyenoughitems");
         //? if jei
         InvMoveCompats.register(JEIModule::new, "jei");
-        // for some reason doing EMIModule20::new causes a classload but this doesn't???
         //? if emi
         InvMoveCompats.register(EMIModule::new, "emi");
     }

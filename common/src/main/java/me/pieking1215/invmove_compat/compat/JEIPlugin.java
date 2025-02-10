@@ -13,9 +13,9 @@ public class JEIPlugin implements IModPlugin {
     @Override
     public @NotNull ResourceLocation getPluginUid() {
         //? if >=1.21 {
-        /*return ResourceLocation.parse("invmove:jei_plugin");
-        *///?} else
-        return new ResourceLocation("invmove:jei_plugin");
+        return ResourceLocation.parse("invmove:jei_plugin");
+        //?} else
+        /*return new ResourceLocation("invmove:jei_plugin");*/
     }
 
     @Override
