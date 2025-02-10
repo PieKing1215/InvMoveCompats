@@ -47,6 +47,13 @@ versionRange = "[${rei_min},)"
 ordering = "NONE"
 side = "CLIENT"
 
+[[dependencies.${id}]]
+modId = "emi"
+type = "optional"
+versionRange = "[${emi_min},)"
+ordering = "NONE"
+side = "CLIENT"
+
 [[mixins]]
 config = "${id}.mixins.json"
 [[mixins]]

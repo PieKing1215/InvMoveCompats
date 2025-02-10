@@ -24,7 +24,11 @@ stonecutter.registerChiseled tasks.register("chiseledPublishMods", stonecutter.c
 }
 
 stonecutter.parameters {
-    dependency("rei", rootProject.project(metadata.project).property("rei_version"))
+    def proj = rootProject.project(metadata.project)
+    "const"("rei", proj.hasProperty("rei_version"))
+    dependency("rei", proj.findProperty("rei_version") ?: "0")
+    "const"("emi", proj.hasProperty("emi_version"))
+    dependency("emi", proj.findProperty("emi_version") ?: "0")
 }
 
 publishMods {
@@ -78,8 +82,16 @@ subprojects {
 
         archivesBaseName = "$rootProject.display_name-$project.name"
 
+        ext.hasProp = prop -> {
+            return rootProject.project(stonecutter.current.project).hasProperty(prop)
+        }
+
         ext.get = prop -> {
             return rootProject.project(stonecutter.current.project).property(prop)
+        }
+
+        ext.getOr = (prop, defaultValue) -> {
+            return rootProject.project(stonecutter.current.project).findProperty(prop) ?: defaultValue
         }
 
         var modid = rootProject.id

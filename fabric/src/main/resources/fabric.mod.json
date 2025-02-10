@@ -36,6 +36,7 @@
     "invmove": ">=0.9.0"
   },
   "suggests": {
-    "rei": ">=${rei_min}"
+    "rei": ">=${rei_min}",
+    "emi": ">=${emi_min}"
   }
 }

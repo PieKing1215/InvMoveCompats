@@ -7,5 +7,9 @@
   "config.invmove.jei.movement.recipe": "Recipe Screen",
   "config.invmove.jei.backgroundHide.recipe": "Recipe Screen",
 
+  "key.invmove.module.emi": "EMI",
+  "config.invmove.emi.movement.recipe": "Recipe Screen",
+  "config.invmove.emi.backgroundHide.recipe": "Recipe Screen",
+
   "key.invmove.module.cloth-config": "Cloth Config"
 }

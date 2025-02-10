@@ -57,7 +57,8 @@ processResources {
             "cloth_id"        : stonecutter.eval(stonecutter.current.project, ">=1.18") ? "cloth_config" : "cloth_config2",
             "cloth_min"       : get("cloth_min"),
             "invmove_version" : rootProject.invmove_version,
-            "rei_min"         : get("rei_min"),
+            "rei_min"         : getOr("rei_min", "0"),
+            "emi_min"         : getOr("emi_min", "0"),
     ]
 
     inputs.properties props

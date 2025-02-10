@@ -27,8 +27,15 @@ dependencies {
 
     // compat mods
 
-    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api:${get("rei_version")}"
-    modCompileOnly "me.shedaniel:RoughlyEnoughItems-runtime:${get("rei_version")}"
+    if (hasProp("rei_version")) {
+        modCompileOnly "me.shedaniel:RoughlyEnoughItems-api:${get("rei_version")}"
+        modCompileOnly "me.shedaniel:RoughlyEnoughItems-runtime:${get("rei_version")}"
+    }
+
+    if (hasProp("emi_version")) {
+        modCompileOnly "dev.emi:${get("emi_maven")}:${get("emi_version")}:api"
+        modCompileOnly "dev.emi:${get("emi_maven")}:${get("emi_version")}"
+    }
 }
 
 publishing {
