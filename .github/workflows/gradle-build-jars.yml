@@ -31,7 +31,7 @@ jobs:
 
       - name: publishCurrentToMavenLocal
         working-directory: ./InvMove
-        run: ./InvMove/gradlew publishCurrentToMavenLocal --no-daemon
+        run: ./gradlew publishCurrentToMavenLocal --no-daemon
 
       - uses: actions/checkout@v3
 
