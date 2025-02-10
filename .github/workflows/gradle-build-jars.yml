@@ -11,8 +11,6 @@ jobs:
       contents: read
 
     steps:
-      - uses: actions/checkout@v3
-
       - uses: benjlevesque/short-sha@v1.2
         id: short-sha
 
@@ -23,6 +21,18 @@ jobs:
           distribution: 'temurin'
           server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
           settings-path: ${{ github.workspace }} # location for the settings.xml file
+
+      - uses: actions/checkout@v3
+        with:
+          repository: PieKing1215/InvMove
+          path: "./InvMove/"
+
+      - run: chmod +x ./InvMove/gradlew
+
+      - name: chiseledBuild
+        run: ./InvMove/gradlew publishCurrentToMavenLocal --no-daemon
+
+      - uses: actions/checkout@v3
 
       - run: chmod +x ./gradlew
 
