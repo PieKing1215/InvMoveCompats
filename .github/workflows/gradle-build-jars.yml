@@ -29,7 +29,8 @@ jobs:
 
       - run: chmod +x ./InvMove/gradlew
 
-      - name: chiseledBuild
+      - name: publishCurrentToMavenLocal
+        working-directory: ./InvMove
         run: ./InvMove/gradlew publishCurrentToMavenLocal --no-daemon
 
       - uses: actions/checkout@v3
