@@ -1,0 +1,15 @@
+{
+  "key.invmove.module.roughlyenoughitems": "Roughly Enough Items",
+  "config.invmove.roughlyenoughitems.movement.recipe": "Экран рецептов",
+  "config.invmove.roughlyenoughitems.backgroundHide.recipe": "Экран рецептов",
+
+  "key.invmove.module.jei": "Just Enough Items",
+  "config.invmove.jei.movement.recipe": "Экран рецептов",
+  "config.invmove.jei.backgroundHide.recipe": "Экран рецептов",
+
+  "key.invmove.module.emi": "EMI",
+  "config.invmove.emi.movement.recipe": "Экран рецептов",
+  "config.invmove.emi.backgroundHide.recipe": "Экран рецептов",
+
+  "key.invmove.module.cloth-config": "Cloth Config"
+}
