@@ -196,7 +196,8 @@ subprojects {
                     if(platproj.name.matches("fabric|forge|neoforge")) {
                         copy {
                             from file("build/publishMods/")
-                            into rootProject.file("build/publishMods/${project.name}/${platproj.name}")
+                            def pname = project.name.replaceAll("-${platproj.name}", "")
+                            into rootProject.file("build/publishMods/${pname}/${platproj.name}")
                         }
 //                        delete "build/publishMods/"
                     }
@@ -208,8 +209,9 @@ subprojects {
                 dependsOn(tasks.named("publishMods"), tasks.named("collectPublish"))
             }
 
+            def pname = project.name.replaceAll("-${parent.name}", "")
             publishMods {
-                file = rootProject.file("build/libs/${display_name}-${rootProject.version}+${project.name}-${parent.name.replaceAll('f', 'F').replaceAll('n', 'N')}.jar")
+                file = rootProject.file("build/libs/${display_name}-${rootProject.version}+${pname}-${parent.name.replaceAll('f', 'F').replaceAll('n', 'N')}.jar")
                 modLoaders.add(parent.name)
 
                 changelog = rootProject.publishMods.changelog
@@ -229,11 +231,11 @@ subprojects {
                         projectId = modrinth_project
 
                         displayName = "$rootProject.version for ${parent.name.replaceAll('f', 'F').replaceAll('n', 'N')} ${get("display_mc_version")}"
-                        version = "$rootProject.version+$project.name-$parent.name"
+                        version = "$rootProject.version+$pname-$parent.name"
 
                         minecraftVersionRange {
                             start = get("minecraft_min")
-                            end = project.name
+                            end = pname
                         }
 
                         requires "cloth-config"
