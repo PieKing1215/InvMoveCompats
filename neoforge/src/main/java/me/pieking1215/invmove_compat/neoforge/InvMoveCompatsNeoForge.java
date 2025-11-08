@@ -14,7 +14,7 @@ public class InvMoveCompatsNeoForge {
     }
 
     private void imEnqueue(InterModEnqueueEvent evt) {
-        if (FMLEnvironment.dist == Dist.CLIENT) {
+        if (/*? if >= 1.21.9 {*/FMLEnvironment.getDist()/*?} else {*//*FMLEnvironment.dist*//*?}*/ == Dist.CLIENT) {
             InvMoveCompatsNeoForgeInit.init();
         }
     }
