@@ -2,7 +2,7 @@ import me.modmuss50.mpp.ReleaseType
 
 plugins {
     id "dev.kikugie.stonecutter"
-    id 'dev.architectury.loom' version '1.7-SNAPSHOT' apply false
+    id 'dev.architectury.loom' version '1.11-SNAPSHOT' apply false
     id 'architectury-plugin' version '3.4-SNAPSHOT' apply false
     id 'com.github.johnrengelman.shadow' version '8.1.1' apply false
     id 'me.modmuss50.mod-publish-plugin' version '0.7.4'
@@ -21,16 +21,6 @@ stonecutter.registerChiseled tasks.register("chiseledBuild", stonecutter.chisele
 stonecutter.registerChiseled tasks.register("chiseledPublishMods", stonecutter.chiseled) {
     setGroup "project"
     ofTask "publishAndCollect"
-}
-
-stonecutter.parameters {
-    def proj = rootProject.project(metadata.project)
-    "const"("rei", proj.hasProperty("rei_version"))
-    dependency("rei", proj.findProperty("rei_version") ?: "0")
-    "const"("emi", proj.hasProperty("emi_version"))
-    dependency("emi", proj.findProperty("emi_version") ?: "0")
-    "const"("jei", proj.hasProperty("jei_version"))
-    dependency("jei", proj.findProperty("jei_version") ?: "0")
 }
 
 publishMods {
@@ -80,6 +70,13 @@ subprojects {
 
         stonecutter {
 //            swap("Input", eval(stonecutter.current.version, ">=1.21.2") ? "ClientInput" : "Input")
+            def proj = rootProject.project(stonecutter.current.project)
+            "const"("rei", proj.hasProperty("rei_version"))
+            dependency("rei", proj.findProperty("rei_version") ?: "0")
+            "const"("emi", proj.hasProperty("emi_version"))
+            dependency("emi", proj.findProperty("emi_version") ?: "0")
+            "const"("jei", proj.hasProperty("jei_version"))
+            dependency("jei", proj.findProperty("jei_version") ?: "0")
         }
 
         archivesBaseName = "$rootProject.display_name-$project.name"
@@ -116,7 +113,7 @@ subprojects {
         }
 
         dependencies {
-            minecraft "net.minecraft:minecraft:${get("minecraft_version")}"
+            minecraft "net.minecraft:minecraft:${getOr("minecraft_version", stonecutter.current.project)}"
             mappings loom.officialMojangMappings()
         }
 
@@ -152,12 +149,12 @@ subprojects {
             }
         }
 
-        if (stonecutter.current.isActive && parent.name != "common") {
+        if (stonecutter.current.active && parent.name != "common") {
             rootProject.tasks.register("Run Active ${parent.name.capitalize()}") {
                 group = "project"
                 dependsOn(tasks.named("runClient"))
             }
-        } else if (stonecutter.current.isActive && parent.name == "common") {
+        } else if (stonecutter.current.active && parent.name == "common") {
             rootProject.tasks.register("publishCurrentToMavenLocal") {
                 group = "publishing"
                 dependsOn(tasks.named("publishToMavenLocal"))
@@ -238,6 +235,32 @@ subprojects {
                             end = pname
                         }
 
+                        requires "invmove"
+                        requires "cloth-config"
+
+                        if (parent.name == "fabric") {
+                            optional "modmenu"
+                        }
+                    }
+                }
+
+                if (providers.environmentVariable("RELEASE_CURSEFORGE").getOrElse("false").toBoolean()) {
+                    curseforge {
+                        accessToken = providers.environmentVariable("CURSEFORGE_API_KEY").get()
+                        projectId = curseforge_project
+
+                        displayName = "$rootProject.version for ${parent.name.replaceAll('f', 'F').replaceAll('n', 'N')} ${get("display_mc_version")}"
+                        version = "$rootProject.version+$pname-$parent.name"
+
+                        clientRequired = true
+                        serverRequired = false
+
+                        minecraftVersionRange {
+                            start = get("minecraft_min")
+                            end = pname
+                        }
+
+                        requires "invmove"
                         requires "cloth-config"
 
                         if (parent.name == "fabric") {

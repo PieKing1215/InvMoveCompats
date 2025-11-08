@@ -41,7 +41,11 @@ dependencies {
         exclude(group: "net.fabricmc.fabric-api")
     }
 
-    modApi "me.pieking1215.invmove.fabric:InvMove:${rootProject.invmove_version}"
+    modApi("me.pieking1215.invmove.fabric:InvMove:${rootProject.invmove_version}") {
+        exclude(group: "net.fabricmc")
+        exclude(group: "net.fabricmc.fabric-api")
+        exclude(group: "me.shedaniel.cloth")
+    }
 
     common(project(path: ":common:$stonecutter.current.project", configuration: 'namedElements')) { transitive false }
     shadowBundle project(path: ":common:$stonecutter.current.project", configuration: 'transformProductionFabric')
