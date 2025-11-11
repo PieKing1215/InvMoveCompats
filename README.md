@@ -32,6 +32,8 @@ This mod adds explicit support for the following mods:
 - [REI](https://modrinth.com/mod/rei) (search bar)
 - [JEI](https://modrinth.com/mod/jei) (search bar)
 - [EMI](https://modrinth.com/mod/emi) (search bar)
+- [Ponder (Create)](https://github.com/Creators-of-Create/Ponder)
+  - (Note disabling movement when holding ponder on an item requires Create 6.0.7+)
 
 If you want to request support for another mod, please [open an issue](https://github.com/PieKing1215/InvMoveCompats/issues)!
 
