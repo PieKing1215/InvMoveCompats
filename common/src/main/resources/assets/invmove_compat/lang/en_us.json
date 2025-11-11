@@ -14,8 +14,13 @@
   "key.invmove.module.cloth-config": "Cloth Config",
 
   "key.invmove.module.ponder": "Ponder",
-  "config.invmove.ponder.movement.holdPonderAllowMovement": "Item Hold To Ponder",
+  "config.invmove.ponder.movement.holdPonderAllowMovement.notAvailable": "§6§oFull Ponder support requires Create 6.0.7+.\nSome features (Hold To Ponder option) are disabled.",
+  "config.invmove.ponder.movement.holdPonderAllowMovement": "Hold To Ponder",
+  "tooltip.config.invmove.ponder.movement.holdPonderAllowMovement": "Controls if movement is allowed while pressing the Ponder key on an item.",
   "config.invmove.ponder.movement.ponder": "Ponder UI",
+  "tooltip.config.invmove.ponder.movement.ponder": "This menu is a pause screen so this option may be overridden.",
   "config.invmove.ponder.movement.tag": "Ponder Category",
-  "config.invmove.ponder.movement.index": "Ponder Index"
+  "tooltip.config.invmove.ponder.movement.tag": "This menu is a pause screen so this option may be overridden.",
+  "config.invmove.ponder.movement.index": "Ponder Index",
+  "tooltip.config.invmove.ponder.movement.index": "This menu is a pause screen so this option may be overridden."
 }

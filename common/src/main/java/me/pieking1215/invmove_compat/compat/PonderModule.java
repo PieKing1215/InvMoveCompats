@@ -2,7 +2,7 @@ package me.pieking1215.invmove_compat.compat;
 
 //? if ponder {
 
-/*import me.pieking1215.invmove.InvMove;
+import me.pieking1215.invmove.InvMove;
 import me.pieking1215.invmove.InvMoveConfig;
 import me.pieking1215.invmove.module.CVComponent;
 import me.pieking1215.invmove.module.ModuleImpl;
@@ -15,8 +15,6 @@ import net.createmod.ponder.foundation.ui.PonderTagScreen;
 import net.createmod.ponder.foundation.ui.PonderUI;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
-
-import java.util.stream.Stream;
 
 public class PonderModule extends ModuleImpl {
     private long lastPonderTime = 0;
@@ -34,8 +32,9 @@ public class PonderModule extends ModuleImpl {
             // this setting only works on newer Ponder, so put it after the part that throws
             holdPonderAllowMovement = m_config.bool("holdPonderAllowMovement", false).textFn(InvMoveConfig.MOVEMENT_YES_NO_TEXT);
         } catch(NoSuchMethodError e) {
-            // expected for older versions of Ponder (before Create 6.0.7)
-            InvMoveCompats.LOGGER.warn("Full Ponder support is limited to Create 6.0.7+");
+            // Error expected for older versions of Ponder (before Create 6.0.7)
+            InvMoveCompats.LOGGER.warn("Full Ponder support requires Create 6.0.7+. Some features (Hold To Ponder option) are disabled.");
+            m_config.label("holdPonderAllowMovement.notAvailable");
         }
 
         register(PonderUI.class).cfg("ponder").setDefaults(false, false).submit();
@@ -65,16 +64,7 @@ public class PonderModule extends ModuleImpl {
                 && !holdPonderAllowMovement.get()
                 && Minecraft.getInstance().level != null
                 && Minecraft.getInstance().level.getGameTime() == lastPonderTime
-                && PonderKeybinds.PONDER.isDown()
-                && Stream.of(
-                    Minecraft.getInstance().options.keyUp,
-                    Minecraft.getInstance().options.keyDown,
-                    Minecraft.getInstance().options.keyLeft,
-                    Minecraft.getInstance().options.keyRight,
-                    Minecraft.getInstance().options.keyJump,
-                    Minecraft.getInstance().options.keyShift,
-                    Minecraft.getInstance().options.keySprint
-                ).anyMatch(k -> k.getTranslatedKeyMessage() == PonderKeybinds.PONDER.message())) {
+                && PonderKeybinds.PONDER.isDown()) {
             return Movement.SUGGEST_DISABLE;
         }
 
@@ -82,4 +72,4 @@ public class PonderModule extends ModuleImpl {
     }
 }
 
-*///?}
+//?}

@@ -25,7 +25,7 @@ public abstract class InvMoveCompats {
         //? if emi
         InvMoveCompats.register(EMIModule::new, "emi");
         //? if ponder
-        /*InvMoveCompats.register(PonderModule::new, "ponder");*/
+        InvMoveCompats.register(PonderModule::new, "ponder");
     }
 
     public static void register(Supplier<Module> moduleSup, String... modid) {
