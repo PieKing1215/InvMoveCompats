@@ -6,6 +6,7 @@ import me.pieking1215.invmove.InvMove;
 import me.pieking1215.invmove.InvMoveConfig;
 import me.pieking1215.invmove.module.CVComponent;
 import me.pieking1215.invmove.module.ModuleImpl;
+import me.pieking1215.invmove_compat.InvMoveCompats;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.screens.Screen;
 
@@ -57,7 +58,7 @@ public class REIModule extends ModuleImpl {
                 );
 
         if (isFocused == null) {
-            System.err.println("[InvMoveCompats] [REI] Couldn't find isFocused Method");
+            InvMoveCompats.LOGGER.error("Couldn't find REI's isFocused Method");
         }
     }
 

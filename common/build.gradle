@@ -44,6 +44,10 @@ dependencies {
     if (hasProp("jei_version")) {
         modCompileOnly "mezz.jei:${get("jei_maven")}:${get("jei_version")}"
     }
+
+    if (hasProp("ponder_version")) {
+        modCompileOnly "net.createmod.ponder:Ponder-Common-${get("ponder_mc_version")}:${get("ponder_version")}"
+    }
 }
 
 publishing {

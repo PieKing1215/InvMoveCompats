@@ -77,6 +77,8 @@ subprojects {
             dependency("emi", proj.findProperty("emi_version") ?: "0")
             "const"("jei", proj.hasProperty("jei_version"))
             dependency("jei", proj.findProperty("jei_version") ?: "0")
+            "const"("ponder", proj.hasProperty("ponder_version"))
+            dependency("ponder", proj.findProperty("ponder_version") ?: "0")
         }
 
         archivesBaseName = "$rootProject.display_name-$project.name"
@@ -137,6 +139,7 @@ subprojects {
             maven { url "https://maven.fabricmc.net/" }
             maven { url "https://maven.architectury.dev/" }
             maven { url "https://files.minecraftforge.net/maven/" }
+            maven { url = "https://maven.createmod.net" }
         }
 
         processResources {
